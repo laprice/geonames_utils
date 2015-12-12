@@ -19,4 +19,12 @@ insert into poi_names
        );
 commit transaction;
 
+-- geometry index speeds up point lookups by an order of magnitude
 create index poi_geom_index on poi_names using GIST ( geom );
+
+--full text index on the names field for lookup by name
+begin transaction;
+alter table poi_names add column name_tsv tsvector;
+update poi_names set name_tsv = to_tsvector('english', name);
+commit transaction;
+create index name_tsv_index on poi_names using gin(name_tsv);
