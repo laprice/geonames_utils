@@ -1,0 +1,3 @@
+# geonames import
+
+Some SQL to import the geonames database and make it available in a postgis database.
