@@ -1,3 +1,9 @@
-# geonames import
+#geonames import
 
 Some SQL to import the geonames database and make it available in a postgis database.
+
+http://www.geonames.org/ this is for the data from 
+http://download.geonames.org/export/dump/
+
+Also included are some sample queries to do very basic location and text searches
+against the geonames table.
